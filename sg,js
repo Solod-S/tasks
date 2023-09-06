@@ -88,3 +88,28 @@ var maxSequence = function(arr){
   
   return result;
 }
+
+
+// ====== На умножение
+
+
+function adjacentElementsProduct(array) {
+  if (array.length < 2) {
+    return undefined; // Вернуть undefined, если массив содержит менее 2 элементов
+  }
+
+  let maxProduct = array[0] * array[1]; // Инициализировать максимальное произведение первыми двумя элементами
+
+  for (let i = 1; i < array.length - 1; i++) {
+    const product = array[i] * array[i + 1]; // Вычислить произведение двух смежных элементов
+
+    if (product > maxProduct) {
+      maxProduct = product; // Обновить максимальное произведение, если текущее произведение больше
+    }
+  }
+
+  return maxProduct;
+}
+console.log(adjacentElementsProduct([3, 6, -2, -5, 7, 3]));
+// 21
+
